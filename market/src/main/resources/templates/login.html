@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+<style>
+    table {margin: auto;} body{text-align: center}
+    .div_layout{
+        width: 900px;
+        height: 500px;
+        border: 8px solid #EEEEEE;
+        background-color: white;
+        /*让div水平居中*/
+        margin: auto;
+    }
+    #username,#password{
+        width: 251px;
+        height: 32px;
+        border: 1px solid #A6A6A6 ;
+        /*设置边框圆角*/
+        border-radius: 5px;
+        padding-left: 10px;
+    }
+    .top{
+        color: blue;
+        font-size: 30px;
+    }
+
+</style>
+
+</head>
+<body>
+<form action="/user/login" method="post">
+    <div class="div_layout">
+        <div>
+            ===============================================
+
+
+            ===============================================
+        </div>
+        <div>
+            <div class="top">
+                什么都能卖的神奇商店
+            </div>
+            <div>
+                ===============================================
+
+
+                ===============================================
+
+            </div>
+                <table>
+                    <tr>
+                        <td class="td_left"><label >用户名</label></td>
+                        <td class="td_right"><input type="text" id="username" name="username" placeholder="请输入用户名"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="td_left"><label>密码</label></td>
+                        <td class="td_right"><input type="text" name="password" id="password" placeholder="请输入密码"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" id="btn_sub1" value="登陆" style="width: 100px;height: 50px; background: cornflowerblue"></td>
+                    </tr>
+                </table>
+        </div>
+        <div class="_l" style="color: red">
+            <span th:text="${session.msg}"></span>
+            <a class="a_1" href="/eregist.html">去注册</a>
+        </div>
+        <div>
+            <a class="a_2" href="/adminlogin.html">管理员登录</a>
+        </div>
+    </div>
+</form>
+
+
+
+</body>
+</html>

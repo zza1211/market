@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>管理员登录</title>
+    <style>
+        table {margin: auto;} body{text-align: center}
+        .all{
+            width: 900px;
+            height: 500px;
+            border: 8px solid #EEEEEE;
+            background-color: white;
+            /*让div水平居中*/
+            margin: auto;
+        }
+        #password{
+            width: 251px;
+            height: 32px;
+            border: 1px solid #A6A6A6 ;
+            /*设置边框圆角*/
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+        #submit{
+            width: 100px;
+            height: 50px;
+            background: #fff;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="all">
+    <div class="div_left">
+        <h1>管理员登录</h1>
+    </div>
+
+<form action="/admin/login" method="post">
+    <div class="div_center">
+        <div class="div_table">
+            <table>
+                <tr>
+                    <td class="td_right">
+                        <label>密码</label>
+                    </td>
+                    <td class="td_left">
+                        <input type="text" name="password" id="password" placeholder="请输入密码">
+                    </td>
+                </tr>
+            </table>
+
+            <input type="submit" id="submit" value="登录" style="" >
+
+
+            <div>
+                <a class="a_1" href="/elogin.html">返回登录</a>
+                <span th:text="${session.msg}"></span>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+
+</body>
+</html>

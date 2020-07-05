@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>管理页面</title>
+    <style>
+        .div_layout{
+            width: 900px;
+            height: 500px;
+            border: 8px solid #EEEEEE;
+            background-color: white;
+            /*让div水平居中*/
+            margin: auto;
+        }
+        .div_left{
+            width:200px;
+            height: 500px;
+            float: left;
+        }
+        .div_left a{
+            width: 10px;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="div_layout">
+<table border="1" style="margin: auto;" cellspacing="0">
+    <tr height="50" style="text-align: center;">
+        <th width="50">id</th>
+        <th width="100">username</th>
+        <th width="150">电话号码</th>
+        <th width="100">余额</th>
+    </tr>
+    <tr th:each="user:${session.users}">
+        <td width="50" ><span th:text="${user.id}"></span></td>
+        <td width="100" ><span th:text="${user.username}"></span></td>
+        <td width="150" ><span th:text="${user.phn}"></span></td>
+        <td width="100" ><span th:text="${user.money}"></span></td>
+        <!--将id写入请求命令-->
+        <form th:action="@{/delete/}+${user.id}" method="post">
+        <td><input type="submit" value="删除"></td>
+        </form>
+        <form th:action="@{/update/}+${user.id}" method="post">
+        <td><input type="submit" value="修改"></td>
+        </form>
+    </tr>
+
+</table>
+</div>
+
+<div class="div_layout">
+<table border="1" style="margin: auto;" cellspacing="0">
+    <tr height="50" style="text-align: center;">
+        <th width="50">id</th>
+        <th width="100">商品图片</th>
+        <th width="100">商品名称</th>
+        <th width="150">商品详情</th>
+        <th width="100">商品价格</th>
+    </tr>
+    <tr th:each="good:${session.goods}">
+        <td width="50" ><span th:text="${good.id}"></span></td>
+        <td width="100"> <img th:src="@{${good.imageurl}}"  width="100" height="50"/></td>
+        <td width="100" ><span th:text="${good.name}"></span></td>
+        <td width="150" ><span th:text="${good.describe}"></span></td>
+        <td width="100" ><span th:text="${good.price}"></span></td>
+    </tr>
+
+</table>
+    <div style="font-size: 25px;text-align: center">
+        <a href="/upload">上传商品</a>
+    </div>
+</div>
+</body>
+</html>
